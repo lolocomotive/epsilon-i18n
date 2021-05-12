@@ -105,13 +105,12 @@ function updateDiagnostics(
                 }
             }
         }
-        if (
-            line.replace(/\s*/g, '').length === 0 &&
-            lineNr !== document.lineCount - 1
-        ) {
-            diagnostic.message = 'Empty Line';
-        } else {
-            continue;
+        if (line.replace(/\s*/g, '').length === 0) {
+            if (lineNr !== document.lineCount - 1) {
+                diagnostic.message = 'Empty Line';
+            } else {
+                continue;
+            }
         }
 
         diagnostics.push(diagnostic);

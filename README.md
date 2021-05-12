@@ -4,13 +4,19 @@ Support for `.i18n` files used by the Epsilon graphing calculator operating syst
 
 ## Features
 
-Syntax highlighting
-<br>
+Syntax highlighting and error detection
+<br><br>
 ![Syntax highlighting screenshot](./syntax.png)
 
 ## Release Notes
 
-For now there's only syntax highlighting. Formatting and error detection coming soon
+Formatting coming soon
+
+### 1.1.0
+
+#### Added
+
+-   Error detection
 
 ### 1.0.1
 
