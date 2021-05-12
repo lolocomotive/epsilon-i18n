@@ -5,6 +5,10 @@
     "version": "1.0.0",
     "author": "lolocomotive",
     "publisher": "lolocomotive",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/lolocomotive/epsilon-i18n.git"
+    },
     "engines": {
         "vscode": "^1.56.0"
     },
