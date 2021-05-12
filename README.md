@@ -12,6 +12,15 @@ Syntax highlighting
 
 For now there's only syntax highlighting. Formatting and error detection coming soon
 
+### 1.0.1
+
+#### Fixed
+
+-   Changelog
+-   Added Icon
+
 ### 1.0.0
 
-Initial release
+#### Added
+
+-   Syntax highlighting

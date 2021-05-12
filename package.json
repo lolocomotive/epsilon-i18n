@@ -2,6 +2,7 @@
     "name": "epsilon-i18n",
     "displayName": "Epsilon I18n",
     "description": "I18n support for the epsilon graphing calculator (numworks) operating system",
+    "icon": "./logo.png",
     "version": "1.0.0",
     "author": "lolocomotive",
     "publisher": "lolocomotive",
