@@ -1,0 +1,43 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Epsilon i18n",
+	"patterns": [
+		{
+			"include": "#variable"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#equals"
+		}
+	],
+	"repository": {
+		"strings": {
+			"name": "string.quoted.double.epsilon-i18n",
+			"match": "(?<=^(\\w+)\\s*=\\s*)\\\"((?:\\\\\\\"|(?:(?!\\\").))*)\\\"$",
+			"patterns": [
+				{
+					"name": "constant.character.escape.epsilon-i18n",
+					"match": "\\\\."
+				}
+			]
+		},
+		"variable": {
+			"name": "variable.epsilon-i18n",
+			"match": "^(\\w+)(?=\\s*=\\s*\\\"((?:\\\\\\\"|(?:(?!\\\").))*)\\\"$)"
+		},
+		"comments": {
+			"name": "comment.line.epsilon-i18n",
+			"match": "^#(.*)$"
+		},
+		"equals": {
+			"name": "keyword.operator.epsilon-i18n",
+			"match": "(?<=^(\\w+)\\s*)=(?=\\s*\\\"((?:\\\\\\\"|(?:(?!\\\").))*)\\\"$)"
+		}
+	},
+	"scopeName": "source.i18n"
+}

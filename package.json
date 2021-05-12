@@ -1,0 +1,36 @@
+{
+    "name": "epsilon-i18n",
+    "displayName": "Epsilon I18n",
+    "description": "I18n support for the epsilon graphing calculator (numworks) operating system",
+    "version": "1.0.0",
+    "author": "lolocomotive",
+    "publisher": "lolocomotive",
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "epsilon-i18n",
+                "aliases": [
+                    "Epsilon i18n",
+                    "epsilon-i18n"
+                ],
+                "extensions": [
+                    ".i18n"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "epsilon-i18n",
+                "scopeName": "source.i18n",
+                "path": "./syntaxes/epsilon-i18n.tmLanguage.json"
+            }
+        ]
+    }
+}
