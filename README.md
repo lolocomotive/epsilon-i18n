@@ -5,6 +5,7 @@ Support for `.i18n` files used by the Epsilon graphing calculator operating syst
 ## Features
 
 Syntax highlighting
+![Syntax highlighting screenshot](./syntax.png)
 
 ## Release Notes
 
