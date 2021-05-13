@@ -2,6 +2,12 @@
 
 All notable changes to the Epsilon I18n extension will be documented in this file.
 
+## 1.2.0
+
+### Added
+
+-   Formatting
+
 ## 1.1.0
 
 ### Added
