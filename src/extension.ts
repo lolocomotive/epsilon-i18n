@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import * as path from 'path';
 let channel: vscode.OutputChannel;
 let diagnosticCollection: vscode.DiagnosticCollection;
 
@@ -14,6 +13,48 @@ export function activate(context: vscode.ExtensionContext) {
     if (vscode.window.activeTextEditor) {
         updateDiagnostics(vscode.window.activeTextEditor.document, collection);
     }
+    vscode.languages.registerDocumentFormattingEditProvider('epsilon-i18n', {
+        provideDocumentFormattingEdits(
+            document: vscode.TextDocument
+        ): vscode.TextEdit[] {
+            channel.appendLine('Formatting document');
+            var edits: vscode.TextEdit[] = [];
+            channel.appendLine(document.lineCount.toString());
+            var lineNr = 0;
+            while (lineNr < document.lineCount) {
+                try {
+                    var line = document.lineAt(lineNr).text;
+                    channel.appendLine(
+                        lineNr.toString() + '/' + document.lineCount.toString()
+                    );
+                    channel.appendLine('Test' + (lineNr < document.lineCount));
+                    channel.appendLine(
+                        line.replace(
+                            /(?<=^(\w+))\s*=\s*(?=\"((?:\\"|(?:(?!\").))*)\"$)/g,
+                            ' = '
+                        )
+                    );
+                    edits.push(
+                        vscode.TextEdit.replace(
+                            new vscode.Range(
+                                new vscode.Position(lineNr, 0),
+                                new vscode.Position(lineNr, line.length)
+                            ),
+                            line.replace(
+                                /(?<=^(\w+))\s*=\s*(?=\"((?:\\"|(?:(?!\").))*)\"$)/g,
+                                ' = '
+                            )
+                        )
+                    );
+                } catch (err) {
+                    channel.appendLine(err);
+                }
+                lineNr++;
+            }
+            channel.appendLine('Test' + (lineNr < document.lineCount));
+            return edits;
+        },
+    });
     context.subscriptions.push(
         vscode.workspace.onDidChangeTextDocument((editor) => {
             if (editor) {
@@ -84,7 +125,6 @@ function updateDiagnostics(
             for (var t of keyArr) {
                 key += t;
             }
-            channel.appendLine(key);
             if (key !== null) {
                 if (key.length > 0) {
                     if (!/^[ -~]+$/.test(key)) {
